@@ -9,18 +9,18 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 def caesar(start_text, shift_amount, cipher_direction):
     result = ''
 
-    for letter in start_text:
+    for char in start_text:
         if cipher_direction == 'encode':
-            if letter not in alphabet:
-                result += letter
+            if char not in alphabet:
+                result += char
             else:
-                cipher_index = alphabet.index(letter) + shift_amount
+                cipher_index = alphabet.index(char) + shift_amount
                 result += alphabet[cipher_index]
         elif cipher_direction == 'decode':
-            if letter not in alphabet:
-                result += letter
+            if char not in alphabet:
+                result += char
             else:
-                text_index = alphabet.index(letter) - shift_amount
+                text_index = alphabet.index(char) - shift_amount
                 result += alphabet[text_index]
 
     print(f'The {cipher_direction}d text is {result}\n')
@@ -34,7 +34,7 @@ while not game_end:
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
 
-    shift = shift % 26
+    shift = shift % 26  # Allows for users inputting large shift numbers
 
     caesar(start_text=text, shift_amount=shift, cipher_direction=direction)
 
