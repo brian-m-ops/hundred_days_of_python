@@ -21,14 +21,22 @@ operations = {
     '/': divide
 }
 
-num1 = int(input("What's the first number?: "))
-num2 = int(input("What's the second number?: "))
+finished = False
 
-for operator in operations:
-    print(operator)
+while not finished:
+    num1 = int(input("What's the first number?: "))
+    num2 = int(input("What's the second number?: "))
 
-operation_symbol = input("Pick an operation from the line above: ")
-calc_function = operations[operation_symbol]
-answer = calc_function(num1, num2)
+    for operator in operations:
+        print(operator)
 
-print(f"{num1} {operation_symbol} {num2} = {answer}")
+    operation_symbol = input("Pick an operation from the line above: ")
+    calc_function = operations[operation_symbol]
+    answer = calc_function(num1, num2)
+
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
+    keep_going = input(
+        f"Type 'y' to continue calculating with {answer}, or type 'n' to exit.:  ")
+
+    if keep_going == 'n':
+        finished = True
