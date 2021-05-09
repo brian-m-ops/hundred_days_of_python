@@ -25,7 +25,7 @@ finished = False
 
 while not finished:
     num1 = int(input("What's the first number?: "))
-    num2 = int(input("What's the second number?: "))
+    num2 = int(input("What's the next number?: "))
 
     for operator in operations:
         print(operator)
@@ -35,8 +35,9 @@ while not finished:
     answer = calc_function(num1, num2)
 
     print(f"{num1} {operation_symbol} {num2} = {answer}")
-    keep_going = input(
-        f"Type 'y' to continue calculating with {answer}, or type 'n' to exit.:  ")
 
-    if keep_going == 'n':
+    if input(
+            f"Type 'y' to continue calculating with {answer}, or type 'n' to exit.:  ") == 'y':
+        num1 = answer
+    else:
         finished = True
