@@ -33,3 +33,4 @@ screen.onkey(key='a', fun=turn_left)
 screen.onkey(key='d', fun=turn_right)
 screen.onkey(key='c', fun=clear_drawing)
 screen.exitonclick()
+# test
