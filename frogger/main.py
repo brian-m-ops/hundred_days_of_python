@@ -23,12 +23,18 @@ while game_is_on:
     car_manager.create_car()
     car_manager.move_cars()
 
-    # Detect when the turtle player collides with a car and stop
-    # the game if this happens. If you get stuck,
-    # check the video walkthrough in Step 5.
+    # Detect when the turtle player collides with a
+    for car in car_manager.all_cars:
+        if car.distance(player) < 20:
+            game_is_on = False
 
+    # Detect when the turtle player has reached the top of the screen
+    if player.is_at_finish_line():
+        player.go_to_start()
+        car_manager.level_up()
 
-    #Detect when the turtle player has reached the top edge of the screen
+    screen.exitonclick()
+
     # (i.e., reached the FINISH_LINE_Y). When this happens, return the
     # turtle to the starting position and increase the speed of the cars.
     # Hint: think about creating an attribute and using the
