@@ -18,3 +18,4 @@ data = pandas.read_csv("weather_data.csv")
 # print(average)
 
 print(data["temp"].mean())
+print(data["temp"].max())
