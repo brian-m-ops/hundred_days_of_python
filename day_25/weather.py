@@ -17,5 +17,16 @@ data = pandas.read_csv("weather_data.csv")
 # average = sum(temp_list) / len(temp_list)
 # print(average)
 
-print(data["temp"].mean())
-print(data["temp"].max())
+# print(data["temp"].mean())
+# print(data["temp"].max())
+
+# Get Data in columns 2 methods
+# print(data["condition"])
+# print(data.condition)
+
+# Get Data in Row where dat is Monday
+print(data[data.day == "Monday"])
+
+# Get Data in Row for highest temp
+print(data[data.temp == data["temp"].max()])
+
